@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نمو الصادرات الجزائرية خارج المحروقات - جويلية 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 384px;
+            }
+        }
+        .kpi-number {
+            font-weight: 900;
+            font-size: 6rem;
+            line-height: 1;
+            color: #0d9488;
+        }
+        .flowchart-item {
+            border-color: #003f5c;
+            background-color: #f0f9ff;
+        }
+        .flowchart-arrow {
+            color: #4d648d;
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003f5c] mb-2">طفرة في الصادرات الجزائرية خارج المحروقات</h1>
+            <p class="text-lg text-[#4d648d]">نظرة تحليلية على أداء الأشهر السبعة الأولى من عام 2025</p>
+            <p class="text-sm text-gray-500 mt-2">تاريخ النشر: 15 أكتوبر 2025</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center justify-center text-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-4">نمو إجمالي ملحوظ</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        حققت الصادرات الجزائرية خارج قطاع المحروقات قفزة نوعية خلال الأشهر السبعة الأولى من عام 2025، مسجلةً ارتفاعًا إجماليًا بنسبة 23% مقارنة بنفس الفترة من العام الماضي. هذا النمو يعكس الديناميكية الإيجابية والتنوع المتزايد في الاقتصاد الوطني.
+                    </p>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0 flex justify-center items-center">
+                    <div class="kpi-number text-[#f4a261]">
+                        +23%
+                    </div>
+                </div>
+            </section>
+            
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#003f5c] text-center mb-2">محركات النمو القطاعي</h2>
+                <p class="text-center text-gray-600 mb-8">تقود عدة قطاعات رئيسية هذا النمو، مما يبرز تنوع القاعدة التصديرية للجزائر. تتصدر الأجهزة الكهربائية القائمة بأعلى نسبة نمو.</p>
+                <div class="chart-container h-96 md:h-[450px] max-h-[500px]">
+                    <canvas id="sectorGrowthChart"></canvas>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#003f5c] text-center mb-2">التوسع في الأسواق العالمية</h2>
+                 <p class="text-center text-gray-600 mb-8">تواصل الصادرات الجزائرية تعزيز وجودها في الأسواق التقليدية مع التوسع نحو وجهات جديدة، خاصة في آسيا وأوروبا.</p>
+                <div class="chart-container">
+                    <canvas id="continentGrowthChart"></canvas>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#003f5c] text-center mb-2">أبرز الشركاء التجاريين</h2>
+                 <p class="text-center text-gray-600 mb-8">شهدت الصادرات نحو دول أوروبية وأمريكية جنوبية زيادة كبيرة في القيمة، مما يعكس قوة العلاقات التجارية.</p>
+                <div class="chart-container">
+                    <canvas id="countryGrowthChart"></canvas>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#003f5c] text-center mb-2">جهود حكومية داعمة للنمو</h2>
+                <p class="text-center text-gray-600 mb-8">تقف خلف هذه النتائج الإيجابية منظومة متكاملة من الدعم الحكومي والتحفيزات الموجهة للمصدرين، والتي تهدف إلى تعزيز القدرة التنافسية للمنتجات الجزائرية في الأسواق العالمية.</p>
+                <div class="flex flex-col md:flex-row items-center justify-around text-center w-full space-y-4 md:space-y-0">
+                    <div class="flex flex-col items-center">
+                        <div class="flowchart-item rounded-lg border-2 p-4 w-64">
+                            <h3 class="text-xl font-bold text-[#003f5c]">تحفيزات مباشرة</h3>
+                            <p class="text-gray-700 mt-2">دعم تكاليف النقل بنسبة <span class="font-bold text-[#e76f51]">50%</span> والمشاركة في المعارض بنسبة تصل إلى <span class="font-bold text-[#e76f51]">80%</span>.</p>
+                        </div>
+                    </div>
+                    <div class="flowchart-arrow hidden md:block">→</div>
+                     <div class="flowchart-arrow md:hidden">↓</div>
+                    <div class="flex flex-col items-center">
+                         <div class="flowchart-item rounded-lg border-2 p-4 w-64">
+                            <h3 class="text-xl font-bold text-[#003f5c]">ترويج دولي مكثف</h3>
+                            <p class="text-gray-700 mt-2">المشاركة الفعالة في المعارض الدولية والإقليمية مع برامج مستقبلية لـ 2026 و2027 و2028.</p>
+                        </div>
+                    </div>
+                     <div class="flowchart-arrow hidden md:block">→</div>
+                      <div class="flowchart-arrow md:hidden">↓</div>
+                    <div class="flex flex-col items-center">
+                         <div class="flowchart-item rounded-lg border-2 p-4 w-64">
+                            <h3 class="text-xl font-bold text-[#003f5c]">نتائج ملموسة</h3>
+                            <p class="text-gray-700 mt-2">إبرام <span class="font-bold text-2xl text-[#f4a261]">80</span> عقدًا تجاريًا جديدًا منذ بداية العام، وتعويض المصدرين عن تكاليف 2025.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>تم تصميم هذا الانفوجرافيك بناءً على بيانات وزارة التجارة الخارجية وترقية الصادرات.</p>
+             <p>إنشاء المحتوى وتصوير البيانات تم بدون استخدام أي صور بصيغة SVG أو مكتبة MermaidJS.</p>
+        </footer>
+    </div>
+
+    <script>
+        const vibrantPalette = {
+            darkBlue: '#003f5c',
+            mediumBlue: '#4d648d',
+            lightBlue: '#acc2d9',
+            orange: '#f4a261',
+            reddish: '#e76f51',
+            background: 'rgba(172, 194, 217, 0.2)'
+        };
+
+        const defaultTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        font: {
+                            family: "'Cairo', sans-serif"
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            family: "'Cairo', sans-serif"
+                        }
+                    }
+                },
+                y: {
+                     ticks: {
+                        font: {
+                            family: "'Cairo', sans-serif"
+                        }
+                    }
+                }
+            },
+            maintainAspectRatio: false
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+
+        const sectorCtx = document.getElementById('sectorGrowthChart').getContext('2d');
+        const sectorData = {
+            labels: [
+                wrapLabel('الأجهزة الكهربائية والكهرومنزلية', 16),
+                wrapLabel('المحاجر والمناجم', 16),
+                wrapLabel('الصناعات الغذائية والمواد الفلاحية', 16),
+                wrapLabel('مواد البناء والسيراميك', 16),
+                wrapLabel('الأسمدة والمواد الكيميائية', 16)
+            ],
+            datasets: [{
+                label: 'نسبة النمو (%)',
+                data: [36, 14, 13, 11, 9],
+                backgroundColor: [
+                    vibrantPalette.reddish,
+                    vibrantPalette.orange,
+                    vibrantPalette.darkBlue,
+                    vibrantPalette.mediumBlue,
+                    vibrantPalette.lightBlue,
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        };
+        new Chart(sectorCtx, {
+            type: 'bar',
+            data: sectorData,
+            options: { ...defaultTooltipOptions, indexAxis: 'y' }
+        });
+        
+        const continentCtx = document.getElementById('continentGrowthChart').getContext('2d');
+        const continentData = {
+            labels: ['آسيا', 'أوروبا', 'أمريكا الشمالية والجنوبية'],
+            datasets: [{
+                label: 'نمو الصادرات نحو القارات (%)',
+                data: [31, 21, 11],
+                backgroundColor: [vibrantPalette.darkBlue, vibrantPalette.orange, vibrantPalette.reddish],
+                hoverOffset: 4
+            }]
+        };
+        new Chart(continentCtx, {
+            type: 'doughnut',
+            data: continentData,
+            options: defaultTooltipOptions
+        });
+
+        const countryCtx = document.getElementById('countryGrowthChart').getContext('2d');
+        const countryData = {
+            labels: ['إسبانيا', 'إيطاليا', 'البرازيل'],
+            datasets: [{
+                label: 'الزيادة في قيمة الصادرات (مليون دولار)',
+                data: [205, 162, 156],
+                backgroundColor: [vibrantPalette.darkBlue, vibrantPalette.mediumBlue, vibrantPalette.lightBlue],
+                 borderColor: [vibrantPalette.darkBlue, vibrantPalette.mediumBlue, vibrantPalette.lightBlue],
+                borderWidth: 1
+            }]
+        };
+        new Chart(countryCtx, {
+            type: 'bar',
+            data: countryData,
+            options: { ...defaultTooltipOptions,
+                 scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
